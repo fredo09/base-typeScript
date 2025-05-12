@@ -17,11 +17,29 @@ export class Pokemon {
 	constructor (
 		// public readonly id: number, //! -> No permite modificar esta propiedad solo lectura
 		public id: number,
-		public name: string
+		public name: string,
+		// public imageUrl: string,
 	) {}
+
+	get imageUrl(): string {
+		return `https://pokemon.com/${this.id}.jpg`;
+	}
+
+	scream():void {
+		console.log(`🚀 ~ ${this.name.toUpperCase()}!!`);
+	}
+
+	speak():void {
+		console.log(`🚀 ~ ${this.name.toUpperCase()} speak: Cha, cha, charmander!!!`);
+	}
 }
 
 export const charmander = new Pokemon(4, 'Charmander');
+
+charmander.scream();
+// charmander.speak();
+
+console.log("🚀 ~ charmander:", charmander);
 
 //! Con readonly no se pude modificar alguna propiedad de la clases a la que se le aplica esta sintaxis
 
