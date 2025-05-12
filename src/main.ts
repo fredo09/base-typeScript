@@ -6,6 +6,10 @@ import { setupCounter } from './counter.ts';
 import { name } from './bases/01-types.ts';
 import {pokemonIds, Charizard, pokmeons} from './bases/02-objects.ts';
 
+//import { charmander } from './bases/03-classes.ts';
+
+import { charmander } from './bases/04-injection.ts';
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
     <a href="https://vite.dev" target="_blank">
@@ -19,6 +23,9 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 	<h4>Pokmeon Ids ${pokemonIds.join(',')}</h4>
 	<h4>Pokmeon ${Charizard.name}</h4>
 	<h4>Pokmeonss Array ${pokmeons.join(',')}</h4>
+	<div class="card">
+		<h2>${charmander}</h2>
+	</div>
     <div class="card">
       <button id="counter" type="button"></button>
     </div>
