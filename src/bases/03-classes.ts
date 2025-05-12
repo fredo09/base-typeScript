@@ -2,6 +2,7 @@
  * Class for TypeScript in Nest
  */
 import axios from 'axios';
+import { APIResponseI, Move } from './../interfaces/pokeApi-response.interface';
 
 export class Pokemon {
 	// ! Forma clasica de usar instanciar las propiedades en el constructor
@@ -34,10 +35,10 @@ export class Pokemon {
 		console.log(`🚀 ~ ${this.name.toUpperCase()} speak: Cha, cha, charmander!!!`);
 	}
 
-	async getMovies() {
-		const {data} = await axios.get('https://pokeapi.co/api/v2/pokemon/4');
-		console.log("🚀 ~ Pokemon ~ getMovies ~ respApi:", data)
-		return data.movies;
+	async getMovies(): Promise<Move[]> {
+		const {data} = await axios.get<APIResponseI>('https://pokeapi.co/api/v2/pokemon/4');
+		console.log("🚀 ~ Pokemon ~ getMovies ~ respApi:", data.moves)
+		return data.moves;
 	}
 }
 
