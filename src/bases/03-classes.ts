@@ -1,6 +1,7 @@
 /**
  * Class for TypeScript in Nest
  */
+import axios from 'axios';
 
 export class Pokemon {
 	// ! Forma clasica de usar instanciar las propiedades en el constructor
@@ -32,6 +33,12 @@ export class Pokemon {
 	speak():void {
 		console.log(`🚀 ~ ${this.name.toUpperCase()} speak: Cha, cha, charmander!!!`);
 	}
+
+	async getMovies() {
+		const {data} = await axios.get('https://pokeapi.co/api/v2/pokemon/4');
+		console.log("🚀 ~ Pokemon ~ getMovies ~ respApi:", data)
+		return data.movies;
+	}
 }
 
 export const charmander = new Pokemon(4, 'Charmander');
@@ -40,6 +47,7 @@ charmander.scream();
 // charmander.speak();
 
 console.log("🚀 ~ charmander:", charmander);
+charmander.getMovies();
 
 //! Con readonly no se pude modificar alguna propiedad de la clases a la que se le aplica esta sintaxis
 
