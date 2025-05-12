@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg';
 import { setupCounter } from './counter.ts';
 
 import { name } from './bases/01-types.ts';
+import {pokemonIds, Charizard, pokmeons} from './bases/02-objects.ts';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
@@ -15,6 +16,9 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </a>
     <h1>Vite + TypeScript!!</h1>
 	<h3>Hello!! ${name}</h3>
+	<h4>Pokmeon Ids ${pokemonIds.join(',')}</h4>
+	<h4>Pokmeon ${Charizard.name}</h4>
+	<h4>Pokmeonss Array ${pokmeons.join(',')}</h4>
     <div class="card">
       <button id="counter" type="button"></button>
     </div>
