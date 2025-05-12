@@ -1,0 +1,46 @@
+import { Move, APIResponseI } from '../interfaces/pokeApi-response.interface';
+import { PokeApiAdapter } from '../api/pokeApi.adapter';
+
+export class Pokemon {
+
+    get imageUrl(): string {
+        return `https://pokemon.com/${ this.id }.jpg`;
+    }
+  
+    constructor(
+        public readonly id: number, 
+        public name: string,
+        // Todo: inyectar dependencias
+		private readonly http: PokeApiAdapter //! injeccion de dependencias
+    ) {}
+
+    scream() {
+        console.log(`${ this.name.toUpperCase() }!!!`);
+    }
+
+    speak() {
+        console.log(`${ this.name }, ${ this.name }`);
+    }
+
+    async getMoves(): Promise<Move[]> {
+		//! usando injeccion de dependencias
+		const data = await this.http.get('https://pokeapi.co/api/v2/pokemon/4');
+		console.log( data.moves );
+
+		return data.move;
+
+        // const { data } = await axios.get<APIResponseI>('https://pokeapi.co/api/v2/pokemon/4');
+        // console.log( data.moves );
+        
+        // return data.moves;
+    }
+
+}
+
+//* Instanciando la dependencia
+const pokeApiAdapter = new PokeApiAdapter();
+
+
+export const charmander = new Pokemon( 4, 'Charmander', pokeApiAdapter );
+
+charmander.getMoves();
