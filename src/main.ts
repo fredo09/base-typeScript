@@ -9,7 +9,8 @@ import {pokemonIds, Charizard, pokmeons} from './bases/02-objects.ts';
 //import { charmander } from './bases/03-classes.ts';
 
 //import { charmander } from './bases/04-injection.ts';
-import { charmander } from './bases/05-decorators.ts';
+//import { charmander } from './bases/05-decorators.ts';
+import { charmander } from './bases/06-decorators-a.ts';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
