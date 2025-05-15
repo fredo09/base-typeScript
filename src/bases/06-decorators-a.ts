@@ -1,6 +1,6 @@
 //* Decorador creado "Metodo esta obsoleto"
 const Deprecated = (deprecationReason: string) => {
-    return (target: any, memberName: string, propertyDescriptor: PropertyDescriptor) => {
+    return (_: any, memberName: string, propertyDescriptor: PropertyDescriptor) => {
     	// console.log({target})
 		return {
 			get() {
